@@ -5,7 +5,8 @@
         <div class="logo"><img src="./assets/logo.jpeg" alt=""></div>
         <el-menu
           :router="true"
-          default-active=""
+          :default-active="newPath"
+          unique-opened
           class="el-menu-vertical-demo"
           background-color="#545c64"
           text-color="#fff"
@@ -38,14 +39,16 @@ export default {
         {name: '告警反馈', id : '2',data: [{name: '告警统计',path: '/firerAlarm'}]},
         {name: '隐患反馈', id : '3',data: [{name: '隐患统计',path: '/dangerAlarm'}]},
         {name: '角色查询', id : '4',data: [{name: '用户管理',path: '/user'}]}
-      ]
+      ],
+      newPath: ''
     }
+  },
+  mounted() {
+    let path = window.location.href
+    this.newPath = path.split('#')[1]
   },
   methods: {
 
-    open(path) {
-      console.log(path)
-    }
   }
 }
 </script>
