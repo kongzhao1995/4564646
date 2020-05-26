@@ -11,7 +11,7 @@ const system = () => import('../view/system/firstpage.vue')
 
 export default new Router({
   routes: [
-    {path: '/', redirect: '/dangerAlarm'},
+    {path: '/', redirect: '/system'},
     {path: '/dangerAlarm', component: dangerAlarm},
     {path: '/firerAlarm', component: firerAlarm},
     {path: '/user', component: user},
