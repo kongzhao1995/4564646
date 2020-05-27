@@ -5,10 +5,14 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+// import echarts from '../src/utils/echarts'
+
 
 
 Vue.use(ElementUI)
-
+// Vue.use(echarts)
+// Vue.prototype.$echarts = echarts
+// console.log(this.$echarts)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

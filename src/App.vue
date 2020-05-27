@@ -34,18 +34,39 @@
                 习大大<i class="el-icon-arrow-down el-icon--right"></i>
               </span>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>个人中心</el-dropdown-item>
-                <el-dropdown-item>管辖园区</el-dropdown-item>
-                <el-dropdown-item>个性设置</el-dropdown-item>
+                <el-dropdown-item @click.native="personalCenter">个人中心</el-dropdown-item>
+                <el-dropdown-item @click.native="administrativePark">管辖园区</el-dropdown-item>
+                <el-dropdown-item @click.native="personalization">个性设置</el-dropdown-item>
                 <el-dropdown-item>使用帮助</el-dropdown-item>
-                <el-dropdown-item>退出登陆</el-dropdown-item>
+                <el-dropdown-item @click.native="signout">退出登陆</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </div>
         </el-header>
-        <el-main><router-view></router-view></el-main>
+        <el-main style="backgroundcolor: #fff"><router-view></router-view></el-main>
       </el-container>
     </el-container>
+    <!-- 个人中心对话框 -->
+    <el-dialog
+      title="个人中心"
+      :visible.sync="persondialogVisible"
+      width="40%">
+      <span>这是一段信息</span>
+    </el-dialog>
+    <!-- 管辖园区对话框 -->
+    <el-dialog
+      title="管辖园区"
+      :visible.sync="parkdialogVisible"
+      width="40%">
+      <span>这是一段信息</span>
+    </el-dialog>
+    <!-- 个性设置对话框 -->
+    <el-dialog
+      title="个性设置"
+      :visible.sync="PersonalizationdialogVisible"
+      width="40%">
+      <span>这是一段信息</span>
+    </el-dialog>
   </div>
 </template>
 
@@ -62,12 +83,19 @@ export default {
       ],
       newPath: '',
       navArr: [],
-      newArr: []
+      newArr: [],
+      persondialogVisible: false,
+      parkdialogVisible: false,
+      PersonalizationdialogVisible: false
     }
   },
   mounted() {
     let path = window.location.href
     this.newPath = path.split('#')[1]
+    console.log(this.newPath)
+    if (this.newPath == '/') {
+      this.newPath = '/system'
+    }
     this.list.forEach(v=>{
       v.data.forEach(j=>{
         if (j.path == this.newPath) {
@@ -88,6 +116,22 @@ export default {
           this.newArr.push(newV.name)
         })
       })
+    },
+    // 个人中心
+    personalCenter() {
+      this.persondialogVisible = true
+    },
+    // 管辖园区
+    administrativePark() {
+      this.parkdialogVisible = true
+    },
+    // 个性设置
+    personalization() {
+      this.PersonalizationdialogVisible = true
+    },
+    // 退出登陆
+    signout() {
+
     }
   }
 }
@@ -103,6 +147,7 @@ body,html {
 }
 #app {
   height: 100%;
+  background-color: #ddd;
 }
 .el-container {
   height: 100%;
@@ -111,6 +156,8 @@ body,html {
   height: 140px;
   background-color: blue;
 }
-.header-bg {
+.el-main {
+  background-color: #fff;
+  margin: 20px 20px 0;
 }
 </style>
