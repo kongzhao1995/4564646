@@ -5,12 +5,21 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import axios from 'axios'
 
 
 Vue.use(ElementUI)
+Vue.prototype.$axios = axios
 
 Vue.config.productionTip = false
 
+var instance = axios.create({
+  withCredentials: true,
+  baseURL: '/api',
+  timeout: 50000,
+  headers: { 'Content-Type': 'multipart/form-data' }
+})
+Vue.prototype.instance = instance
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
