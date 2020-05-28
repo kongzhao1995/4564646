@@ -59,20 +59,21 @@ export default {
     },
     methods: {
         getEcharts() {
-            var myChart = this.$echarts.init(document.getElementById('echart-one'))
-            myChart.setOption(this.option)
-            var myChart1 = this.$echarts.init(document.getElementById('echart-two'))
-            myChart1.setOption(this.option)
-            var myChart2 = this.$echarts.init(document.getElementById('echart-three'))
-            myChart2.setOption(this.option)
-            // 图标的自适应
-            setTimeout(function (){
-                window.onresize = function () {
-                    myChart.resize()
-                    myChart1.resize()
-                    myChart2.resize()
-                }
-            },50)
+            this.$echart.myChart('echart-one',this.option)
+            // var myChart = this.$echarts.init(document.getElementById('echart-one'))
+            // myChart.setOption(this.option)
+            // var myChart1 = this.$echarts.init(document.getElementById('echart-two'))
+            // myChart1.setOption(this.option)
+            // var myChart2 = this.$echarts.init(document.getElementById('echart-three'))
+            // myChart2.setOption(this.option)
+            // // 图标的自适应
+            // setTimeout(function (){
+            //     window.onresize = function () {
+            //         myChart.resize()
+            //         myChart1.resize()
+            //         myChart2.resize()
+            //     }
+            // },50)
         }
 
     }
