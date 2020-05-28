@@ -15,13 +15,13 @@ Vue.use(ElementUI)
 // console.log(this.$echarts)
 Vue.config.productionTip = false
 
-var instance = axios.create({
-  withCredentials: true,
-  baseURL: '/api',
-  timeout: 50000,
-  headers: { 'Content-Type': 'multipart/form-data' }
-})
-Vue.prototype.instance = instance
+// var instance = axios.create({
+//   withCredentials: true,
+//   baseURL: '/api',
+//   timeout: 50000,
+//   headers: { 'Content-Type': 'multipart/form-data' }
+// })
+// Vue.prototype.instance = instance
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

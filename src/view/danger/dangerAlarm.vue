@@ -10,13 +10,13 @@ export default {
         }
     },
     created() {
-        this.instance.get('/device/category/maxOnlineRate',{
-             params: {
-                 deptId: ''
-             }
-        }).then(res =>{
-            console.log(res)
-        })
+        // this.instance.get('/device/category/maxOnlineRate',{
+        //      params: {
+        //          deptId: ''
+        //      }
+        // }).then(res =>{
+        //     console.log(res)
+        // })
     }
 }
 </script>
