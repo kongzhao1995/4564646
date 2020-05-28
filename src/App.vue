@@ -22,13 +22,13 @@
         </el-menu>
       </el-aside>
       <el-container>
-        <el-header class="header-bg" height='80px' style="background-color: #eee;">
-          <div style="float:left;margin-top:30px">
+        <el-header class="header-bg" height='60px' style="background-color: #eee;">
+          <div style="float:left;margin-top:20px">
             <el-breadcrumb separator="/">
               <el-breadcrumb-item v-for="item in newArr" :key='item'>{{item}}</el-breadcrumb-item>
             </el-breadcrumb>
           </div>
-          <div style="float: right;margin-top: 30px">
+          <div style="float: right;margin-top: 20px">
             <el-dropdown>
               <span class="el-dropdown-link">
                 习大大<i class="el-icon-arrow-down el-icon--right"></i>
@@ -159,5 +159,6 @@ body,html {
 .el-main {
   background-color: #fff;
   margin: 20px 20px 0;
+  width: 100%;
 }
 </style>
