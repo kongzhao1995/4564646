@@ -8,6 +8,7 @@
 //   }
 // }
 // export default getEcharts
+//  500 365
 import echarts from 'echarts'
 // import moment from 'moment'
 
