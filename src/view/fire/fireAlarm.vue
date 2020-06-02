@@ -1,3 +1,3 @@
 <template>
-    <div>火警反馈</div>
+    <div>火警统计</div>
 </template>>

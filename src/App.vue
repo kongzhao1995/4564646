@@ -23,11 +23,12 @@
       </el-aside>
       <el-container>
         <el-header class="header-bg" height='60px' style="background-color: #eee;">
-          <div style="float:left;margin-top:20px">
+          <!-- 面包屑 -->
+          <!-- <div style="float:left;margin-top:20px">
             <el-breadcrumb separator="/">
               <el-breadcrumb-item v-for="item in newArr" :key='item'>{{item}}</el-breadcrumb-item>
             </el-breadcrumb>
-          </div>
+          </div> -->
           <div style="float: right;margin-top: 20px">
             <el-dropdown>
               <span class="el-dropdown-link">
@@ -77,7 +78,7 @@ export default {
     return {
       list: [
         {name: '系统首页', id : '1',data: [{name: '消防首页',path: '/system'}]},
-        {name: '告警管理', id : '2',data: [{name: '告警统计',path: '/firerAlarm'}]},
+        {name: '告警管理', id : '2',data: [{name: '告警统计',path: '/firerAlarm'},{name: '告警反馈',path: '/feedback'}]},
         {name: '隐患管理', id : '3',data: [{name: '隐患统计',path: '/dangerAlarm'}]},
         {name: '角色查询', id : '4',data: [{name: '用户管理',path: '/user'}]}
       ],
@@ -86,36 +87,45 @@ export default {
       newArr: [],
       persondialogVisible: false,
       parkdialogVisible: false,
-      PersonalizationdialogVisible: false
+      PersonalizationdialogVisible: false,
+      oldPath: '', // 进入页面获取的地址栏路径
+      navPath: ''  // 点击导航获取到的地址栏路径
     }
   },
   mounted() {
-    let path = window.location.href
-    this.newPath = path.split('#')[1]
-    console.log(this.newPath)
-    if (this.newPath == '/') {
-      this.newPath = '/system'
-    }
-    this.list.forEach(v=>{
-      v.data.forEach(j=>{
-        if (j.path == this.newPath) {
-          this.newArr.push(v.name)
-          this.newArr.push(j.name)
-        }
-      })
-    })
+    // this.newArr = []
+    // this.oldPath = window.location.href
+    // this.newPath = this.oldPath.split('#')[1]
+    // console.log(this.newPath)
+    // if (this.newPath == '/') {
+    //   this.newPath = '/system'
+    // }
+    // this.list.forEach(v=>{
+    //   v.data.forEach(j=>{
+    //     if (j.path == this.newPath) {
+    //       this.newArr.push(v.name)
+    //       this.newArr.push(j.name)
+    //     }
+    //   })
+    // })
   },
   methods: {
     navigation(obj) {
-      this.navArr = []
-      this.newArr = []
-      this.navArr.push(obj)
-      this.navArr.forEach(v=>{
-        this.newArr.push(v.name)
-        v.data.forEach(newV=>{
-          this.newArr.push(newV.name)
-        })
-      })
+      // // console.log(obj)
+      // this.navArr = []
+      // this.newArr = []
+      // // 思路：点击导航获取路径若匹配到相同的就放到newArr数组中
+      // this.navPath = window.location.href.split('#')[1]
+      // console.log(this.navPath)
+      // this.navArr.push(obj)
+      // this.navArr.forEach(v=>{
+      //   this.newArr.push(v.name)
+      //   v.data.forEach(newV=>{
+      //     if (newV.path == this.navPath) {
+      //       this.newArr.push(newV.name)
+      //     }
+      //   })
+      // })
     },
     // 个人中心
     personalCenter() {

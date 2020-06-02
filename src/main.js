@@ -9,7 +9,6 @@ import 'echarts'
 import echarts from './utils/echarts'
 
 
-
 Vue.use(ElementUI)
 Vue.use(echarts)
 // Vue.prototype.$echarts = echarts
