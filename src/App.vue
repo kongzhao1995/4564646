@@ -1,14 +1,18 @@
 <template>
   <div id="app">
     <el-container>
-      <el-aside width="200px" style="background-color: #000;height:100%">
+      <el-aside 
+      width="200px" 
+      :background-color="this.$store.state.color"
+      style="height: 100%"
+      :style="{'backgroundColor': this.$store.state.color}">
         <div class="logo"><img src="./assets/logo.jpeg" alt=""></div>
         <el-menu
           :router="true"
           :default-active="newPath"
           unique-opened
           class="el-menu-vertical-demo"
-          background-color="#545c64"
+          :background-color="this.$store.state.color"
           text-color="#fff"
           style="border-right: none"
           active-text-color="orange">
@@ -66,7 +70,7 @@
       title="个性设置"
       :visible.sync="PersonalizationdialogVisible"
       width="40%">
-      <span>这是一段信息</span>
+      <span  class="colorSpan" :style="{'backgroundColor': item.color}"  v-for="item in colorList" :key='item.id' @click="getColor(item.color)"></span>
     </el-dialog>
   </div>
 </template>
@@ -89,7 +93,14 @@ export default {
       parkdialogVisible: false,
       PersonalizationdialogVisible: false,
       oldPath: '', // 进入页面获取的地址栏路径
-      navPath: ''  // 点击导航获取到的地址栏路径
+      navPath: '',  // 点击导航获取到的地址栏路径
+      colorList: [
+        {id: '1', color: "red", text: '红色'},
+        {id: '2', color: "green", text: '绿色'},
+        {id: '3', color: "purple", text: '紫色'},
+        {id: '4', color: "blue", text: '蓝色'},
+        {id: '4', color: "#f8c1d7", text: '粉色'}
+      ]
     }
   },
   mounted() {
@@ -142,6 +153,18 @@ export default {
     // 退出登陆
     signout() {
 
+    },
+    // randomColor() {
+    //   this.colorList.forEach(v =>{
+        
+
+    //   })
+    // },
+    // 获取颜色切换导航背景颜色
+    getColor(color) {
+      // console.log(color)
+      this.$store.state.color = color
+      console.log(this.$store.state.color)
     }
   }
 }
@@ -165,10 +188,14 @@ body,html {
 .logo {
   height: 140px;
   background-color: blue;
+  
 }
 .el-main {
   background-color: #fff;
   margin: 20px 20px 0;
   width: 100%;
+}
+.colorSpan {
+  border: 1px solid #ccc;margin-right:40px;height:60px;display:inline-block;border-radius: 5px;cursor: pointer;width:30px
 }
 </style>
